@@ -28,6 +28,10 @@ PKGS=(
     ttf-jetbrains-mono-nerd
     nvim
     networkmanager
+    mesa
+    intel-media-driver
+    vulkan-intel
+    #vulkan-radeon
 )
 
 yay -S --noconfirm --needed "${PKGS[@]}"
@@ -41,4 +45,8 @@ mkdir -p ~/.config/{hypr,waybar,mako,foot}
 [ -f "$CONFIG_DIR/waybar/style.css" ] && ln -sf "$CONFIG_DIR/waybar/style.css" ~/.config/waybar/style.css
 [ -f "$CONFIG_DIR/mako/config" ] && ln -sf "$CONFIG_DIR/mako/config" ~/.config/mako/config
 [ -f "$CONFIG_DIR/foot/foot.ini" ] && ln -sf "$CONFIG_DIR/foot/foot.ini" ~/.config/foot/foot.ini
+
+if [ ! -f ~/.bash_profile ] || ! grep -q "Hyprland" ~/.bash_profile; then
+    echo '[ "$(tty)" = "/dev/tty1" ] && exec Hyprland' >> ~/.bash_profile
+fi
 
