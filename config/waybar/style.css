@@ -1,19 +1,145 @@
+/* Minimal Waybar Theme */
+
 * {
-    font-family: JetBrainsMono Nerd Font;
-    font-size: 12px;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
 }
+
 window#waybar {
-    background: #000;
-    color: #fff;
-}
-#workspaces button {
-    padding: 0 5px;
-    color: #666;
     background: transparent;
 }
+
+window#waybar > box {
+    background: rgba(30, 30, 46, 0.85);
+    border-radius: 12px;
+    border: 1px solid rgba(147, 153, 178, 0.2);
+}
+
+/* Reset all modules */
+#workspaces,
+#clock,
+#pulseaudio,
+#bluetooth,
+#network,
+#battery,
+#tray {
+    padding: 0 12px;
+    margin: 4px 0;
+    color: #cdd6f4;
+}
+
+/* Workspaces */
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #6c7086;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    margin: 4px 2px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(147, 153, 178, 0.15);
+    color: #cdd6f4;
+}
+
 #workspaces button.active {
-    color: #fff;
+    background: rgba(137, 180, 250, 0.25);
+    color: #89b4fa;
 }
+
+#workspaces button.urgent {
+    background: rgba(243, 139, 168, 0.3);
+    color: #f38ba8;
+}
+
+/* Clock */
 #clock {
-    padding: 0 10px;
+    color: #cdd6f4;
+    font-weight: 600;
 }
+
+/* Pulseaudio */
+#pulseaudio {
+    color: #f9e2af;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+/* Bluetooth */
+#bluetooth {
+    color: #89b4fa;
+}
+
+#bluetooth.connected {
+    color: #a6e3a1;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+    color: #6c7086;
+}
+
+/* Network */
+#network {
+    color: #94e2d5;
+}
+
+#network.disconnected {
+    color: #6c7086;
+}
+
+#network.ethernet {
+    color: #a6e3a1;
+}
+
+/* Battery */
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.charging {
+    color: #f9e2af;
+}
+
+#battery.warning:not(.charging) {
+    color: #fab387;
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+}
+
+/* Tray */
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* Tooltips */
+tooltip {
+    background: rgba(30, 30, 46, 0.95);
+    border: 1px solid rgba(147, 153, 178, 0.3);
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+    padding: 4px 8px;
+}
+
